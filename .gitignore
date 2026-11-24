@@ -1,0 +1,6 @@
+.venv/
+.idea/
+data/csgo_round_snapshots.csv
+models/csgo_model.joblib
+live_state.json
+live_state.tmp

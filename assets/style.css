@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes radarPing {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.75);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 9px rgba(56, 189, 248, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+    }
+}
+
+@keyframes c4Pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55);
+        border-color: rgba(239, 68, 68, 0.85);
+    }
+    50% {
+        box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.35);
+        border-color: rgba(248, 113, 113, 1);
+    }
+}
+
+@keyframes shimmerSweep {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(240%);
+    }
+}
+
+@keyframes barReveal {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.stApp {
+    color: #F1F5F9;
+    font-family: 'Inter', sans-serif;
+}
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+header[data-testid="stHeader"] {
+    background: transparent;
+}
+
+#MainMenu, footer {
+    visibility: hidden;
+}
+
+.block-container {
+    max-width: 1140px;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hud-header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    animation: fadeSlideUp 0.5s ease-out both;
+}
+
+.hud-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.65rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+}
+
+.hud-subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #94A3B8;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38BDF8;
+    display: inline-block;
+    animation: radarPing 1.8s infinite;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    position: relative;
+    background: rgba(12, 19, 34, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    animation: fadeSlideUp 0.6s ease-out both;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.28);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.6);
+}
+
+div[data-testid="stExpander"] {
+    background: rgba(12, 19, 34, 0.75);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 12px;
+    animation: fadeSlideUp 0.6s ease-out both;
+    transition: border-color 0.25s ease;
+}
+
+div[data-testid="stExpander"]:hover {
+    border-color: rgba(56, 189, 248, 0.45);
+}
+
+.team-header-ct, .team-header-t {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    padding: 0.2rem 0.5rem 0.45rem 0.5rem;
+    margin-bottom: 0.85rem;
+    text-transform: uppercase;
+}
+
+.team-header-ct {
+    color: #38BDF8;
+    border-bottom: 2px solid rgba(56, 189, 248, 0.35);
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.12), transparent);
+}
+
+.team-header-t {
+    color: #F59E0B;
+    border-bottom: 2px solid rgba(245, 158, 11, 0.35);
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.12), transparent);
+}
+
+.prob-container {
+    background: rgba(9, 14, 26, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    padding: 1.3rem 1.6rem;
+    margin-top: 1rem;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.6);
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.prob-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.65rem;
+}
+
+.ct-score-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #38BDF8;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
+}
+
+.t-score-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #F59E0B;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
+}
+
+.vs-badge {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 2.2px;
+    color: #94A3B8;
+    text-transform: uppercase;
+}
+
+.dual-bar {
+    position: relative;
+    display: flex;
+    height: 18px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #1E293B;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+.dual-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    animation: shimmerSweep 2.6s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.bar-ct {
+    background: linear-gradient(90deg, #0369A1, #38BDF8);
+    transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bar-t {
+    background: linear-gradient(90deg, #F59E0B, #B45309);
+    transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.clash-spark {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #FFFFFF;
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.85);
+    transform: translateX(-50%);
+    transition: left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 2;
+}
+
+.status-pill-planted {
+    display: inline-block;
+    background: rgba(239, 68, 68, 0.22);
+    border: 1px solid #EF4444;
+    color: #FCA5A5;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: c4Pulse 1.5s infinite;
+}
+
+.status-pill-normal {
+    display: inline-block;
+    background: rgba(148, 163, 184, 0.15);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    color: #CBD5E1;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.telemetry-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0.4rem 0.2rem;
+}
+
+.telemetry-row {
+    display: grid;
+    grid-template-columns: 38px 250px 1fr 64px;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.telemetry-row:hover {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateX(4px);
+}
+
+.telemetry-rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #38BDF8;
+}
+
+.telemetry-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #E2E8F0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.telemetry-track {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(30, 41, 59, 0.95);
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.telemetry-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0284C7 0%, #38BDF8 65%, #7DD3FC 100%);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+    transform-origin: left center;
+    animation: barReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.telemetry-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #94A3B8;
+    text-align: right;
+}
+
+.telemetry-row:hover .telemetry-val {
+    color: #FFFFFF;
+}
