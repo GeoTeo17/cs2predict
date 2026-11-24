@@ -2,6 +2,7 @@
 
 A hybrid machine learning and deterministic game-engine telemetry dashboard that predicts Counter-Terrorist vs. Terrorist round win probabilities in real time.
 
+![CS2 Tactical Win Predictor HUD](assets/preview.png)
 ## Key Features
 - **Hybrid ML + Game-Rules Engine:** Combines a `RandomForestClassifier` trained on 122,410 competitive round snapshots with exact Counter-Strike timing guardrails (`3.2s` C4 plant threshold, `5.0s` kit defuse, `10.0s` non-kit defuse).
 - **Full Loadout & Economy Modeling:** Evaluates active rifles, AWPs, total armor, grenade utility, player differentials, health pools, and unspent team bank.
